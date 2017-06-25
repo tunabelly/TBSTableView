@@ -32,18 +32,19 @@
 {
 	[super viewWillMoveToWindow:newWindow];
 
-	// check
-	NSAssert(self.uniqueIdentifier!=nil, @"uniqueIdentifier cannot be nil - please fill in before the table is shown.");
-	
-	if (newWindow != nil)
+	// only do the load/save if there is a unique ID that's been set
+	if (self.uniqueIdentifier != nil)
 	{
-		// window it about to be shown
-		[self loadAndSetSortDescriptors];
-	}
-	else
-	{
-		// window is closing
-		[self saveSortDescriptors];
+		if (newWindow != nil)
+		{
+			// window it about to be shown
+			[self loadAndSetSortDescriptors];
+		}
+		else
+		{
+			// window is closing
+			[self saveSortDescriptors];
+		}
 	}
 }
 
