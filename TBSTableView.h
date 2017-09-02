@@ -11,5 +11,6 @@
 
 @property NSString *uniqueIdentifier;
 @property NSSortDescriptor *defaultSortDescriptor;
+@property NSString *printJobTitle;
 
 @end
