@@ -1,5 +1,5 @@
 # TBSTableView
-Subclass of NSTableView with auto sort descriptor saving/loading + handle delete key properly.
+Subclass of NSTableView with auto _sort descriptor saving/loading + handle delete key properly._
 
 It will automatically save and load the sort descriptors for the table, provided that the **uniqueIdentifier** is set
 
