@@ -18,10 +18,16 @@
 
 - (void)keyDown:(NSEvent *)theEvent
 {
-	// handle delete
-	unichar key = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-	if (key == NSDeleteCharacter && self.selectedRow != -1) {
-		[NSApp sendAction:@selector(delete:) to:nil from:self];
+	const int kKeyCodeDelete = 51;
+	const int kKeyCodeReturn = 36;
+	const int kKeyCodeEnter = 76;
+	
+	// handle special keydowns that need to get forwarded (ex: a view controller)
+	if (theEvent.keyCode == kKeyCodeDelete && self.selectedRow != -1) {
+		[NSApp sendAction:@selector(deleteAction:) to:nil from:self];
+	}
+	else if ((theEvent.keyCode == kKeyCodeReturn) || (theEvent.keyCode == kKeyCodeEnter) && self.selectedRow != -1) {
+		[NSApp sendAction:@selector(editAction:) to:nil from:self];
 	}
 	else {
 		[super keyDown:theEvent];
