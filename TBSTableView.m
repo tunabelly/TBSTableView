@@ -26,7 +26,7 @@
 	if (theEvent.keyCode == kKeyCodeDelete && self.selectedRow != -1) {
 		[NSApp sendAction:@selector(deleteAction:) to:nil from:self];
 	}
-	else if ((theEvent.keyCode == kKeyCodeReturn) || (theEvent.keyCode == kKeyCodeEnter) && self.selectedRow != -1) {
+	else if (((theEvent.keyCode == kKeyCodeReturn) || (theEvent.keyCode == kKeyCodeEnter)) && self.selectedRow != -1) {
 		[NSApp sendAction:@selector(editAction:) to:nil from:self];
 	}
 	else {
